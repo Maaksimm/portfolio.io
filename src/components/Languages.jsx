@@ -1,5 +1,4 @@
 import { useRef } from "react";
-import { LANGS } from "../data.js";
 import { useReveal } from "../hooks/useReveal.js";
 
 function Lang({ l }) {
@@ -18,15 +17,16 @@ function Lang({ l }) {
   );
 }
 
-export default function Languages() {
+export default function Languages({ content }) {
+  const lg = content.languages;
   return (
     <section id="languages">
       <div className="wrap">
         <div className="head">
-          <h2 className="head__title">Мови</h2>
+          <h2 className="head__title">{lg.title}</h2>
         </div>
         <div className="langs">
-          {LANGS.map((l) => (
+          {lg.items.map((l) => (
             <Lang key={l.name} l={l} />
           ))}
         </div>

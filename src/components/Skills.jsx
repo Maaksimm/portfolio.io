@@ -1,5 +1,4 @@
-import { useRef, useState } from "react";
-import { SKILLS, TABS } from "../data.js";
+import { useRef, useState, useEffect } from "react";
 import { useReveal } from "../hooks/useReveal.js";
 
 function Skill({ s }) {
@@ -18,21 +17,28 @@ function Skill({ s }) {
   );
 }
 
-export default function Skills() {
+export default function Skills({ content }) {
+  const sk = content.skills;
   const [tab, setTab] = useState("all");
-  const shown = tab === "all" ? SKILLS : SKILLS.filter((s) => s.cat === tab);
+
+  // reset to "all" if the active tab doesn't exist after a language switch
+  useEffect(() => {
+    if (!sk.tabs.find((t) => t.id === tab)) setTab("all");
+  }, [sk]);
+
+  const shown = tab === "all" ? sk.items : sk.items.filter((s) => s.cat === tab);
 
   return (
     <section id="skills" className="skills">
       <div className="wrap">
         <div className="head">
-          <h2 className="head__title">Навички</h2>
+          <h2 className="head__title">{sk.title}</h2>
           <span className="head__count">
-            {shown.length} з {SKILLS.length}
+            {shown.length} {sk.of} {sk.items.length}
           </span>
         </div>
         <div className="skills__tabs">
-          {TABS.map((t) => (
+          {sk.tabs.map((t) => (
             <button
               key={t.id}
               className={"skills__tab" + (tab === t.id ? " skills__tab--active" : "")}

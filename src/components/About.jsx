@@ -1,23 +1,12 @@
-export default function About() {
+export default function About({ content }) {
+  const a = content.about;
   return (
     <section id="about">
       <div className="wrap">
         <div className="head">
-          <h2 className="head__title">Про мене</h2>
+          <h2 className="head__title">{a.title}</h2>
         </div>
-        <p className="about__text">
-          Успішно закінчив навчання в <strong>НТУ «Дніпровська політехніка»</strong> на факультеті
-          інформаційних технологій за спеціальністю «Комп'ютерні науки» та отримав диплом. Маю
-          практичний досвід командної розробки реальних проєктів і повністю готовий до повноцінної
-          зайнятості. Працював у команді, використовував Git для контролю версій, взаємодії з
-          колегами та спільної роботи над кодовою базою. Володію <strong>React</strong>,{" "}
-          <strong>JavaScript</strong>, <strong>HTML5</strong>, <strong>CSS3</strong>,{" "}
-          <strong>SASS/SCSS</strong>, інструментами Git та маю досвід роботи з дизайн-макетами.
-          Розвиваюсь у напрямку Full-Stack — маю середній рівень <strong>Python</strong> та
-          початковий рівень <strong>Django</strong>. Шукаю перспективну команду, де зможу
-          застосувати свій досвід, приносити користь реальним проєктам та професійно зростати під
-          керівництвом досвідчених менторів.
-        </p>
+        <p className="about__text" dangerouslySetInnerHTML={{ __html: a.html }} />
       </div>
     </section>
   );

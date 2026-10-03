@@ -34,12 +34,17 @@ npm run preview
 
 ```
 src/
-  components/   — UI-блоки (Nav, Hero, About, Skills, Timeline, Languages, Footer)
+  components/   — UI-блоки (Nav, Hero, About, Skills, Projects, Timeline, Languages, Footer)
   hooks/         — useReveal.js (scroll-reveal анімації)
-  data.js        — контент (навички, досвід, освіта, мови)
-  styles.css     — глобальні стилі, класи в методології БЕМ
-  App.jsx        — збирає сторінку з компонентів
+  assets/photo.jpg — твоє фото в hero-секції
+  content.js     — весь текстовий контент, окремо для UA і EN (CONTENT.ua / CONTENT.en)
+  styles.css     — глобальні стилі, класи в методології БЕМ, акцентні кольори
+  App.jsx        — збирає сторінку з компонентів, тримає стан мови (UA/EN)
   main.jsx       — точка входу React
 public/
   favicon.svg    — фавіконка
 ```
+
+## Що ще доробити
+
+У `src/content.js` у секції `projects.items` для **World Students** і **Business Navigator** стоять заглушки `TODO: опиши...` — заміни їх на короткий опис своїх реальних задач у цих проєктах (окремо для `ua` і `en`).

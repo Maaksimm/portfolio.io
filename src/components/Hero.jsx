@@ -1,30 +1,30 @@
-export default function Hero() {
+import photo from "../assets/photo.jpg";
+
+export default function Hero({ content }) {
+  const h = content.hero;
   return (
     <header className="hero">
       <div className="wrap">
-        <div className="hero__role">Full-Stack Developer</div>
-        <h1 className="hero__title">
-          Створюю інтерфейси,
-          <br />
-          <em>яким довіряють.</em>
-        </h1>
-        <p className="hero__lede">
-          Full-Stack розробник з практичним досвідом командної розробки реальних проєктів:
-          впевнено на фронтенді, розвиваюсь у бекенді на Python і Django. Повністю готовий до
-          повноцінної зайнятості.
-        </p>
-        <div className="hero__meta">
-          <div className="hero__stat">
-            <b>6</b>
-            <span>місяців в ITLEO Academy</span>
+        <div className="hero__row">
+          <div className="hero__main">
+            <div className="hero__role">{h.role}</div>
+            <h1 className="hero__title">
+              {h.titleLine1}
+              <br />
+              <em>{h.titleEm}</em>
+            </h1>
+            <p className="hero__lede">{h.lede}</p>
+            <div className="hero__meta">
+              {h.stats.map((s) => (
+                <div className="hero__stat" key={s.l}>
+                  <b>{s.v}</b>
+                  <span>{s.l}</span>
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="hero__stat">
-            <b>4</b>
-            <span>роки навчання в політехніці</span>
-          </div>
-          <div className="hero__stat">
-            <b>2</b>
-            <span>мови вільного спілкування</span>
+          <div className="hero__photo">
+            <img src={photo} alt="Maksim" />
           </div>
         </div>
       </div>
