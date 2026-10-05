@@ -24,7 +24,7 @@ export default function Hero({ content }) {
             </div>
           </div>
           <div className="hero__photo">
-            <img src={photo} alt="Maksim" />
+            <img src={photo} alt="Pecherskyi Maksym" />
           </div>
         </div>
       </div>
