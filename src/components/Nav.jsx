@@ -7,7 +7,7 @@ export default function Nav({ content, lang, setLang }) {
     <nav className="nav">
       <div className="nav__row">
         <span className="nav__mark">
-          Maksim<i>.</i>
+          Pecherskyi Maksym<i>.</i>
         </span>
         <ul className={"nav__links" + (open ? " nav__links--open" : "")}>
           {content.nav.links.map(([id, label]) => (
